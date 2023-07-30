@@ -5,16 +5,16 @@
     <tr></tr>
     <tr>
       <th>name</th>
-      <th></th>
+      <th><%= @user.name %></th>
     </tr>
     <tr>
       <th>introduction</th>
-      <th></th>
+      <th><%= @user.introduction %></th>
     </tr>
   </tbody>
 </table>
 
-<h4>New Book</h4>
+<h2>New Book</h2>
 <%= form_with model: @book do |f| %>
 <h4>Title</h4>
 <%= f.text_field :title %>
@@ -23,4 +23,22 @@
 <%= f.submit 'Create Book' %>
 <% end %>
 
-<h4>Books</h4>
+<h2>Books</h2>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |books| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+      <td> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
