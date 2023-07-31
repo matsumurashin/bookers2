@@ -1,7 +1,28 @@
-<h2>User info</h2>
+<h2>New book</h2>
+<%= form_with model: @user do |f| %>
+<h6>Title</h6>
+<%= f.text_field :title %>
+<h6>Opinion</h6>
+<%= f.text_area :introduction %><br>
+<%= f.submit 'Create Book' %>
 
+<h2>Users</h2>
+<table>
+    <thead>
+      <tr>
+        <th>image</th>
+        <th>name</th>
+        <th></th>
+        </tr>
+    </thead>
 
-
-
-
-users
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= image_tag(user.get_profile_image(80,80)) %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to "Show", users_path(user.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

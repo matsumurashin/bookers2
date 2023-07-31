@@ -3,8 +3,7 @@ class BooksController < ApplicationController
 
   def index
     @book_new = Book.new
-    @book = Book.find(params[:id])
-    @user = @book.user
+    @books = Book.all
   end
 
   def create
@@ -28,6 +27,11 @@ class BooksController < ApplicationController
    @book = Book.find(params[:id])
    @book.destroy
    redirect_to '/books'
+  end
+
+  def edit
+    @book = Book.find(params[:id])
+    @user = @book.user
   end
 
   private
