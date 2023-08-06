@@ -47,7 +47,7 @@
               </li>
 
               <li>
-                <%= link_to root_path, class:"nav-link text-light" do %>
+                <%= link_to destroy_user_session_path, class:"nav-link text-light",method: :delete do %>
                   <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
                   Log out
                 <% end %>
