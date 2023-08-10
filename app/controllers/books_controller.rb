@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
 
   def index
-    @book_new = Book.new
+    @book = Book.new
     @books = Book.all
   end
 
@@ -16,16 +16,7 @@ class BooksController < ApplicationController
       @books = Book.all
       render :index
     end
-
-    def create
-      @book_val = Book.new(book_params)
-      @book_val.user_id = current_user.id
-      if @book_val.save
-        redirect_to user_path(params[:id])
-      else
-        render :new
-      end
-    end
+  end
 
   def show
     @book_new = Book.new
